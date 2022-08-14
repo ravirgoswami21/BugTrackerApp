@@ -20,10 +20,6 @@ public class BaseEntity {
 	
 	//@JsonFormat(shape=JsonFormatTypes.STRING, pattern="dd-MM-yyyy")
 	private Date createdDate;
-	
-	@NotNull(message = "UpdatedBy can not be null")
-	@Min(value=3, message = "UpdatedBy should be of minimum 3 value")
-	@Max(value=9, message = "UpdatedBy should not be of more than 9 value")
 	private String updatedBy;
 	
 	//@JsonFormat(shape=JsonFormatTypes.STRING, pattern="dd-MM-yyyy")

@@ -1,14 +1,8 @@
-package com.ratepay.app.bugtracker.entity;
+package com.ratepay.app.bugtracker.dto;
 
-import javax.annotation.Generated;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -17,15 +11,10 @@ import com.ratepay.app.bugtracker.util.Enums.UserType;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
-@Entity
-@Table(name = "applUsers")
-public class ApplUsers extends BaseEntity{
-
+public class ApplUsersDTO {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
 	@NotNull(message = "FirstName can not be null")
@@ -52,4 +41,5 @@ public class ApplUsers extends BaseEntity{
 	
 	private UserType userType;
 	
+
 }
