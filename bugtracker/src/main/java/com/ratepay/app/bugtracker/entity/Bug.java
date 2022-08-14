@@ -31,8 +31,7 @@ public class Bug extends BaseEntity{
 	private long Id;
 	
 	@NotNull(message = "RaisedBy can not be null")
-	@Min(value=3, message = "RaisedBy can not be null")
-	@Max(value=9, message = "RaisedBy can not be null")
+	@Min(value=2, message = "RaisedBy should be of minimum 2 value")
 	private String raisedBy;
 	
 	@OneToOne
@@ -40,8 +39,9 @@ public class Bug extends BaseEntity{
 	private Environment environment;
 	private DefectType type;
 	
-	@NotNull(message = "RaisedBy can not be null")
-	
+	@NotNull(message = "Description can not be null")
+	@Min(value=8, message = "Description should be of minimum 8 value")
+	@Max(value=50, message = "Description should not be of more than 50 value")
 	private String description;
 	
 	@OneToMany

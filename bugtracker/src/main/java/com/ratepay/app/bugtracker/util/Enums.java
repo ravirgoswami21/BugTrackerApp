@@ -3,7 +3,7 @@ package com.ratepay.app.bugtracker.util;
 public class Enums {
 	
 	public enum UserType { 
-		Developer, QA, Support, Admin 
+		Developer, QA, Support, Admin, Client 
 	}  
 
 	public enum DefectStatus { 

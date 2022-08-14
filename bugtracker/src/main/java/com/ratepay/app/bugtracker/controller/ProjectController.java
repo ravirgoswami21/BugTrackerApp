@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ratepay.app.bugtracker.entity.Project;
+import com.ratepay.app.bugtracker.exception.ResourceNotFoundException;
 import com.ratepay.app.bugtracker.service.ProjectService;
 
 @RestController
@@ -32,7 +33,11 @@ public class ProjectController {
 	}
 	
 	@GetMapping("/getProjectById")
-	public Optional<Project> getProjectById(@RequestParam("id") Long projectId) {
+	public Optional<Project> getProjectById(@RequestParam("id") Long projectId) throws ResourceNotFoundException {
+		Optional<Project> project = projectService.getProjectById(projectId);	
+		if(project == null) {
+			throw new ResourceNotFoundException();
+		}
 		return projectService.getProjectById(projectId);
 	}
 	

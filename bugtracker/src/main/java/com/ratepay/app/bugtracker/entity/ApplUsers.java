@@ -24,24 +24,21 @@ public class ApplUsers extends BaseEntity{
 	private long id;
 	
 	@NotNull(message = "FirstName can not be null")
-	@Min(value=3, message = "FirstName can not be null")
-	@Max(value=9, message = "FirstName can not be null")
+	@Min(value=3, message = "FirstName should be of minimum 3 value")
 	private String firstName;
 	
 	@NotNull(message = "LastName can not be null")
-	@Min(value=3, message = "LastName can not be null")
-	@Max(value=9, message = "LastName can not be null")
+	@Min(value=3, message = "LastName should be of minimum 3 value")
 	private String lastName;
 	
 	
 	@NotNull(message = "UserName can not be null")
-	@Min(value=3, message = "UserName can not be null")
-	@Max(value=15, message = "UserName can not be null")
+	@Min(value=3, message = "UserName should be of minimum 3 value")
 	private String userName;
 	
 	private long mobile;
 	
-	@Email(regexp="*@*.*",message = "Email can not be null")
+	@Email(regexp="*@*.*",message = "Email is not Valid")
 	private String email;
 	
 	
@@ -49,8 +46,6 @@ public class ApplUsers extends BaseEntity{
 	private String password;
 	
 	@NotNull(message = "UserType can not be null")
-	@Min(value=3, message = "UserType can not be null")
-	@Max(value=9, message = "UserType can not be null")
 	private UserType userType;
 	
 }

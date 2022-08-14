@@ -20,17 +20,17 @@ public class Project extends BaseEntity {
 	private long id;
 	
 	@NotNull(message = "Cade can not be null")
-	@Min(value=3, message = "Cade can not be null")
+	@Min(value=3, message = "Cade should be of minimum 3 value")
 	@Max(value=5, message = "Cade can not be null")
 	private String code;
 	
 	@NotNull(message = "Name can not be null")
-	@Min(value=3, message = "Name can not be null")
-	@Max(value=9, message = "Name can not be null")
+	@Min(value=5, message = "Name should be of minimum 3 value")
+	@Max(value=20, message = "Name should not be of more than 20 value")
 	private String name;
 	
 	@NotNull(message = "Description can not be null")
-	@Min(value=4, message = "Description can not be null")
-	@Max(value=10, message = "Description can not be null")
+	@Min(value=8, message = "Description should be of minimum 3 value")
+	@Max(value=100, message = "Description should not be of more than 100 value")
 	private String description;
 }
