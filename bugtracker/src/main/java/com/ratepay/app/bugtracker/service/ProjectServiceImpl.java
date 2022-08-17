@@ -1,5 +1,6 @@
 package com.ratepay.app.bugtracker.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,12 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public void deleteProject(long projectId) {
 		projectRepository.deleteById(projectId);
+	}
+
+	@Override
+	public List<Project> getAllProjectList() {
+		return projectRepository.findAll();
+		
 	}
 
 }

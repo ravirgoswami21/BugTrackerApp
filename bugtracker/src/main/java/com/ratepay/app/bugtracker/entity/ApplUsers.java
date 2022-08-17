@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.ratepay.app.bugtracker.util.Enums.UserType;
@@ -32,15 +33,17 @@ public class ApplUsers extends BaseEntity{
 	@Size(max=10,min=5,message="criteria not met")
 	private String firstName;
 	
-//	@NotNull(message = "LastName can not be null")
-//	@Min(value=3, message = "LastName should be of minimum 3 value")
+	@NotNull(message = "LastName can not be null")
+	@Size(max=20,min=3,message="criteria not met")
 	private String lastName;
 	
 	
-//	@NotNull(message = "UserName can not be null")
-//	@Min(value=3, message = "UserName should be of minimum 3 value")
+	@NotNull(message = "UserName can not be null")
+	@Size(max=50,min=3,message="criteria not met")
 	private String userName;
 	
+	
+	//@Pattern(regexp = "(^$|[0-9]{10})")
 	private long mobile;
 	
 	//@Email(regexp="*@*.*",message = "Email is not Valid")

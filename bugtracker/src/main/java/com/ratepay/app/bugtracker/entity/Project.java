@@ -1,11 +1,14 @@
 package com.ratepay.app.bugtracker.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,20 +20,18 @@ import lombok.Setter;
 public class Project extends BaseEntity {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
 	@NotNull(message = "Cade can not be null")
-	@Min(value=3, message = "Cade should be of minimum 3 value")
-	@Max(value=5, message = "Cade can not be null")
+	@Size(max=5,min=3,message="criteria not met")
 	private String code;
 	
 	@NotNull(message = "Name can not be null")
-	@Min(value=5, message = "Name should be of minimum 3 value")
-	@Max(value=20, message = "Name should not be of more than 20 value")
+	@Size(max=20,min=3,message="criteria not met")
 	private String name;
 	
 	@NotNull(message = "Description can not be null")
-	@Min(value=8, message = "Description should be of minimum 3 value")
-	@Max(value=100, message = "Description should not be of more than 100 value")
+	@Size(max=100,min=5,message="criteria not met")
 	private String description;
 }

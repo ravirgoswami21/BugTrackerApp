@@ -3,8 +3,6 @@ package com.ratepay.app.bugtracker.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,45 +13,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ratepay.app.bugtracker.entity.ApplUsers;
+import com.ratepay.app.bugtracker.entity.Comment;
 import com.ratepay.app.bugtracker.entity.Project;
 import com.ratepay.app.bugtracker.exception.ResourceNotFoundException;
-import com.ratepay.app.bugtracker.service.ProjectService;
+import com.ratepay.app.bugtracker.service.CommentService;
 
 @RestController
-@RequestMapping("/rpay/project")
-public class ProjectController {
+@RequestMapping("/rpay/comment")
+public class CommentController {
+
 	
-	
-	@Autowired ProjectService projectService;
+	@Autowired CommentService commentService;
 	
 	@PostMapping("/create")
-	public Project createProject(@RequestBody Project project) {
-		return projectService.createProject(project);
+	public Comment createProject(@RequestBody Comment comment) {
+		return commentService.createComment(comment);
 	}
 	
 	@PostMapping("/update")
-	public Project updateProject(@RequestBody Project project) {
-		return projectService.updateProject(project);
+	public Comment updateProject(@RequestBody Comment comment) {
+		return commentService.updateComment(comment);
 	}
 	
 	@GetMapping("/getById")
-	public Optional<Project> getProjectById(@RequestParam("id") Long projectId) throws ResourceNotFoundException {
-		Optional<Project> project = projectService.getProjectById(projectId);	
-		if(project == null) {
+	public Optional<Comment> getCommentById(@RequestParam("id") Long commentId) throws ResourceNotFoundException {
+		Optional<Comment> comment = commentService.getCommentById(commentId);	
+		if(comment == null) {
 			throw new ResourceNotFoundException();
 		}
-		return projectService.getProjectById(projectId);
+		return commentService.getCommentById(commentId);
 	}
 	
 	@GetMapping("/getAll")
-	public List<Project> getallProject() {
-		return projectService.getAllProjectList();
+	public List<Comment> getallComment() {
+		return commentService.getAllCommentList();
 	}
 	
 	@DeleteMapping("/deletebyId/{id}")
-	public void deleteProject(@PathVariable("id") Long project) {
-		projectService.deleteProject(project);
+	public void deleteComment(@PathVariable("id") Long comment) {
+		commentService.deleteComment(comment);
 	}
-
 }
